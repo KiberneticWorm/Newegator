@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Newegator</string>
+    <string name="list_sources_title">Список источников</string>
+    <string name="list_sources_desc">Выбор источника новостей</string>
+    <string name="list_sources_dialog_title">Выберите несколько источников новостей</string>
+    <string name="list_durations_title">Частота обновления новостей</string>
+    <string name="list_durations_dialog_title">Выберите частоту обновления новостей(в минутах)</string>
+    <string name="list_durations_desc">Указывает частоту обновления новостей</string>
+
+    <string name="standard_mode">Стандартный</string>
+    <string name="extended_mode">Расширенный</string>
+    <string name="spinner_title">Режим отображения</string>
+    <string name="published_at_title">Дата публикации</string>
+    <string name="source_title">Источник:</string>
+    <string name="snack_status_update">Обновить</string>
+    <string name="show_failed">Неудалось обновить новости из-за проблем с сетью</string>
+    <string name="snack_cancel">Отмена</string>
+    <string name="action_settings_title">Настройки</string>
+    <string name="view_activity_title">Новость</string>
+    <string name="settings_activity_title">Настройки</string>
+    <string name="is_read">Новость помечена, как прочитанная</string>
+    <string name="cancel_is_read">Отменить</string>
+    <string name="snack_list_sources_empty">Не выбрано ни одного источника</string>
+    <string name="duration_default">5</string>
+    <string name="status_have_read">Прочитано</string>
+
+</resources>

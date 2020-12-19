@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="sources_name">
+        <item>Lenta</item>
+        <item>RBC</item>
+        <item>RT</item>
+        <item>ABC News (AU)</item>
+        <item>Aftenposten</item>
+        <item>Ars Technica</item>
+    </string-array>
+
+    <string-array name="sources_id">
+        <item>lenta</item>
+        <item>rbc</item>
+        <item>rt</item>
+        <item>abc-news-au</item>
+        <item>aftenposten</item>
+        <item>ars-technica</item>
+    </string-array>
+
+    <string-array name="durations">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+    </string-array>
+    
+    <string-array name="modes">
+        <item>Стандартный</item>
+        <item>Расширенный</item>
+    </string-array>
+    
+</resources>
