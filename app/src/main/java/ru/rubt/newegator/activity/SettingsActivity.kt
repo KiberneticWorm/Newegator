@@ -3,18 +3,18 @@ package ru.rubt.newegator.activity
 import android.app.Activity
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
-import androidx.preference.MultiSelectListPreference
 import com.google.android.material.snackbar.Snackbar
 import ru.rubt.newegator.R
 import ru.rubt.newegator.fragment.SettingsFragment
-import ru.rubt.newegator.interfaces.PrefSelectListener
+import ru.rubt.newegator.fragment.interfaces.ChangeThemeListener
+import ru.rubt.newegator.fragment.interfaces.PrefSelectListener
 
-class SettingsActivity : AppCompatActivity(), PrefSelectListener {
+class SettingsActivity : AppCompatActivity(), PrefSelectListener, ChangeThemeListener {
 
     lateinit var root: View
 
@@ -62,5 +62,8 @@ class SettingsActivity : AppCompatActivity(), PrefSelectListener {
 
     override fun onPrefSelect() {
         showAboutEmptySources()
+    }
+    override fun onChangeTheme(theme: Int) {
+        AppCompatDelegate.setDefaultNightMode(theme)
     }
 }

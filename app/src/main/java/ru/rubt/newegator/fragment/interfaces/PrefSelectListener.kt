@@ -1,4 +1,4 @@
-package ru.rubt.newegator.interfaces
+package ru.rubt.newegator.fragment.interfaces
 
 interface PrefSelectListener {
     fun onPrefSelect()

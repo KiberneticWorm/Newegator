@@ -14,6 +14,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Spinner
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.AppCompatSpinner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -89,7 +90,7 @@ class MainActivity : MvpAppCompatActivity(), NewsView {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                showNews(position)
+                showNews()
             }
         }
     }
@@ -151,13 +152,13 @@ class MainActivity : MvpAppCompatActivity(), NewsView {
             (rvNews.layoutManager as LinearLayoutManager)
                     .findFirstVisibleItemPosition()
 
-    private fun showNews(pos: Int) {
+    private fun showNews() {
         val newsShowMode = getNewsShowMode()
 
         if (timerServiceIsBound) {
             timerService.setNewsShowMode(newsShowMode)
         }
-        newsPresenter.showNews(newsShowMode)
+        newsPresenter.showNews(newsShowMode, getCurrPos())
     }
 
     override fun showSuccess(news: List<NewsEntity>, showMode: String) {
@@ -173,13 +174,15 @@ class MainActivity : MvpAppCompatActivity(), NewsView {
         })
 
         rvNews.adapter = adapter
+        (rvNews.layoutManager as LinearLayoutManager)
+                .scrollToPosition(newsRepository.currentPositionNews)
     }
 
-    override fun endLoaded() {
-        showNews(spinnerModes.selectedItemPosition)
+    override fun loadedSuccess() {
+        showNews()
     }
 
-    override fun showFailed(message: Int) {
+    override fun loadedFailed(message: Int) {
 
         val newsShowMode = getNewsShowMode()
 

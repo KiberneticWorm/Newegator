@@ -28,21 +28,23 @@ class NewsPresenter(
                             NewsSortType.PUBLISHED_AT,
                             accessKey)
 
-            withContext(Dispatchers.Main) {
-                viewState.endLoaded()
-            }
-
             if (newsRemoteState is NewsLoadState.NewsFailedLoadedState) {
                 withContext(Dispatchers.Main) {
-                    viewState.showFailed(R.string.show_failed)
+                    viewState.loadedFailed(R.string.show_failed)
+                }
+            } else {
+                withContext(Dispatchers.Main) {
+                    viewState.loadedSuccess()
                 }
             }
         }
     }
 
-    fun showNews(showMode: String) {
+    fun showNews(showMode: String, currPositionNews: Int = 0) {
 
         CoroutineScope(Dispatchers.IO).launch {
+
+            newsRepository.currentPositionNews = currPositionNews
 
             val sourcesId = newsSharedPreferences.getNewsSources()
 

@@ -23,5 +23,7 @@
     <string name="snack_list_sources_empty">Не выбрано ни одного источника</string>
     <string name="duration_default">5</string>
     <string name="status_have_read">Прочитано</string>
+    <string name="switch_dark_theme_title">Включить темную тему</string>
+    <string name="switch_dark_theme_summary">Переключает между светлой и темной темой</string>
 
 </resources>

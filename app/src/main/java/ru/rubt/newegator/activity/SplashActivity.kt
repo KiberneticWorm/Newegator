@@ -3,6 +3,7 @@ package ru.rubt.newegator.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatDelegate
 import moxy.MvpAppCompatActivity
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
@@ -33,11 +34,17 @@ class SplashActivity : MvpAppCompatActivity(), NewsView {
         newsPresenter.updateNews()
     }
 
-    override fun showFailed(message: Int) {}
+    override fun loadedFailed(message: Int) {
+        startMainActivity()
+    }
+
+    override fun loadedSuccess() {
+        startMainActivity()
+    }
 
     override fun showSuccess(news: List<NewsEntity>, showMode: String) {}
 
-    override fun endLoaded() {
+    private fun startMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
         finish()

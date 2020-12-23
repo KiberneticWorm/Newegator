@@ -15,6 +15,7 @@ class NewsRepository @Inject constructor(
     private val newsService: NewsService,
     private val newsConverter: NewsConverter
 ) {
+    var currentPositionNews = 0
 
     fun getNewsById(newsId: Int) : NewsEntity =
             newsDao.getNewsById(newsId)

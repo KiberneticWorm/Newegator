@@ -7,6 +7,6 @@ import ru.rubt.newegator.data.db.NewsEntity
 @StateStrategyType(value = AddToEndSingleStrategy::class)
 interface NewsView : MvpView {
     fun showSuccess(news: List<NewsEntity>, showMode: String)
-    fun endLoaded()
-    fun showFailed(message: Int)
+    fun loadedSuccess()
+    fun loadedFailed(message: Int)
 }
